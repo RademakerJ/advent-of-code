@@ -1,4 +1,4 @@
-# Advent of Code 202
+# Advent of Code 2020
 
 | Day | Name        | Link           | Solution  |
 | ------------- |-------------- |-------------|------|
