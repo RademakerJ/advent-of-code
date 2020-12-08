@@ -9,3 +9,4 @@
 | 5. | Binary Boarding      | [link](https://adventofcode.com/2020/day/5)       |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day5) |
 | 6. | Custom Customs       | [link](https://adventofcode.com/2020/day/6)       |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day6) |
 | 7. | Handy Haversacks     | [link](https://adventofcode.com/2020/day/7)       |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day7) |
+| 8. | Handheld Halting     | [link](https://adventofcode.com/2020/day/8)       |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day8) |
