@@ -7,3 +7,5 @@
 | 3. | Toboggan Trajectory  | [link](https://adventofcode.com/2020/day/3)       |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day3) |
 | 4. | Passport Processing  | [link](https://adventofcode.com/2020/day/4)       |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day4) |
 | 5. | Binary Boarding      | [link](https://adventofcode.com/2020/day/5)       |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day5) |
+| 6. | Custom Customs       | [link](https://adventofcode.com/2020/day/6)       |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day6) |
+| 7. | Handy Haversacks     | [link](https://adventofcode.com/2020/day/7)       |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day7) |
