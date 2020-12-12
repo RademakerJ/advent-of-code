@@ -13,3 +13,4 @@
 | 9. | Encoding Error       | [link](https://adventofcode.com/2020/day/9)       |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day9) |
 | 10.| Adapter Array        | [link](https://adventofcode.com/2020/day/10)      |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day10)|
 | 11.| Seating System       | [link](https://adventofcode.com/2020/day/11)      |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day11)|
+| 11.| Rain Risk            | [link](https://adventofcode.com/2020/day/12)      |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day12|
