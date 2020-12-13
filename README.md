@@ -14,3 +14,4 @@
 | 10.| Adapter Array        | [link](https://adventofcode.com/2020/day/10)      |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day10)|
 | 11.| Seating System       | [link](https://adventofcode.com/2020/day/11)      |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day11)|
 | 12.| Rain Risk            | [link](https://adventofcode.com/2020/day/12)      |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day12)|
+| 13.| Shuttle Search       | [link](https://adventofcode.com/2020/day/13)      |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day13)|
