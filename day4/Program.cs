@@ -15,111 +15,107 @@ namespace day4
             var filePath = Path.Combine(projectDirectory, "data", "data.txt");
 
             using StreamReader streamReader = new StreamReader(filePath);
+            var passportsRaw = streamReader.ReadToEnd().Split(new string[] { Environment.NewLine + Environment.NewLine },
+               StringSplitOptions.RemoveEmptyEntries);
 
-            //Console.WriteLine($"Passports with required fields: {GetPassportsWithRequiredFields(streamReader).Count}"); // Problem 1
-            Console.WriteLine($"Valid passports: {GetValidPassports(streamReader).Count}"); // Problem 2
+            Console.WriteLine($"Passports with required fields: {GetPassportsWithRequiredFields(passportsRaw).Count}"); // Problem 1
+            Console.WriteLine($"Valid passports: {GetValidPassports(passportsRaw).Count}"); // Problem 2
+        }
 
+        static List<Passport> GetValidPassports(string[] passportsRaw)
+        {
+            var passports = GetPassportsWithRequiredFields(passportsRaw);
+            var passedPassports = new List<Passport>();
 
-            static List<Passport> GetValidPassports(StreamReader streamReader)
+            // Hello darkness my old friend
+            for (int i = 0; i < passports.Count; i++)
             {
-                var passports = GetPassportsWithRequiredFields(streamReader);
-                Console.WriteLine(passports.Count);
-                var passedPassports = new List<Passport>();
-
-                // I should go to hell once again
-                for (int i = 0; i < passports.Count; i++)
+                bool invalid = false;
+                foreach (var (key, value) in passports[i].Fields)
                 {
-                    bool invalid = false;
-                    foreach (var (key, value) in passports[i].Fields)
+                    if (key.Equals("eyr"))
                     {
-                        if (key.Equals("eyr"))
-                        {
-                            if (!ValidateNumber(value, 2020, 2030)) { invalid = true; break; };
-                        }
-                        else if (key.Equals("iyr"))
-                        {
-                            if (!ValidateNumber(value, 2010, 2020)) { invalid = true; break; };
-                        }
-                        else if (key.Equals("byr"))
-                        {
-                            if (!ValidateNumber(value, 1920, 2002)) { invalid = true; break; };
-                        }
-                        else if (key.Equals("hgt"))
-                        {
-                            if (!ValidateHeight(value)) { invalid = true; break; };
-                        }
-                        else if (key.Equals("ecl"))
-                        {
-                            if (!ValidateEyeColor(value)) { invalid = true; break; };
-                        }
-                        else if (key.Equals("hcl"))
-                        {
-                            if (!ValidateHairColor(value)) { invalid = true; break; };
-                        }
-                        else if (key.Equals("pid"))
-                        {
-                            if (!ValidatePassportId(value)) { invalid = true; break; };
-                        }
+                        if (!ValidateNumber(value, 2020, 2030)) { invalid = true; break; };
                     }
-
-                    if (!invalid)
+                    else if (key.Equals("iyr"))
                     {
-                        passedPassports.Add(passports[i]);
+                        if (!ValidateNumber(value, 2010, 2020)) { invalid = true; break; };
                     }
-                }
-                return passedPassports;
-            }
-
-            static List<Passport> GetPassportsWithRequiredFields(StreamReader streamReader)
-            {
-                var passportsRaw = streamReader.ReadToEnd().Split(new string[] { Environment.NewLine + Environment.NewLine },
-                               StringSplitOptions.RemoveEmptyEntries);
-
-                var validPassports = new List<Passport>();
-                var requiredFields = new List<string> { "eyr", "hgt", "iyr", "ecl", "byr", "hcl", "pid" };
-                for (int i = 0; i < passportsRaw.Length; i++)
-                {
-                    var components = passportsRaw[i]
-                        .Replace(Environment.NewLine, " ")
-                        .Split(new char[] { ' ', ':' });
-                    var fields = components.Where((x, i) => i % 2 == 0);
-                    var values = components.Where((x, i) => i % 2 != 0);
-
-                    if (requiredFields.All(value => fields.Contains(value)))
+                    else if (key.Equals("byr"))
                     {
-                        var dict = fields.Zip(values).ToDictionary(x => x.First, x => x.Second);
-                        validPassports.Add(new Passport(dict));
+                        if (!ValidateNumber(value, 1920, 2002)) { invalid = true; break; };
+                    }
+                    else if (key.Equals("hgt"))
+                    {
+                        if (!ValidateHeight(value)) { invalid = true; break; };
+                    }
+                    else if (key.Equals("ecl"))
+                    {
+                        if (!ValidateEyeColor(value)) { invalid = true; break; };
+                    }
+                    else if (key.Equals("hcl"))
+                    {
+                        if (!ValidateHairColor(value)) { invalid = true; break; };
+                    }
+                    else if (key.Equals("pid"))
+                    {
+                        if (!ValidatePassportId(value)) { invalid = true; break; };
                     }
                 }
 
-                return validPassports;
+                if (!invalid)
+                {
+                    passedPassports.Add(passports[i]);
+                }
+            }
+            return passedPassports;
+        }
+
+        static List<Passport> GetPassportsWithRequiredFields(string[] passportsRaw)
+        {
+            var validPassports = new List<Passport>();
+            var requiredFields = new List<string> { "eyr", "hgt", "iyr", "ecl", "byr", "hcl", "pid" };
+            for (int i = 0; i < passportsRaw.Length; i++)
+            {
+                var components = passportsRaw[i]
+                    .Replace(Environment.NewLine, " ")
+                    .Split(new char[] { ' ', ':' });
+                var fields = components.Where((x, i) => i % 2 == 0);
+                var values = components.Where((x, i) => i % 2 != 0);
+
+                if (requiredFields.All(value => fields.Contains(value)))
+                {
+                    var dict = fields.Zip(values).ToDictionary(x => x.First, x => x.Second);
+                    validPassports.Add(new Passport(dict));
+                }
             }
 
-            static bool ValidateNumber(string value, int min, int max)
-            {
-                // I give up.
-                return int.TryParse(value, out int number) && number >= min && number <= max;
-            }
+            return validPassports;
+        }
 
-            static bool ValidateHeight(string value)
-            {
-                return Regex.Match(value, "^(1[5-8][0-9]|19[0-3])cm|(59|6[0-9]|7[0-6])in$").Success;
-            }
+        static bool ValidateNumber(string value, int min, int max)
+        {
+            return int.TryParse(value, out int number) && number >= min && number <= max;
+        }
 
-            static bool ValidateHairColor(string value)
-            {
-                return Regex.Match(value, "^#[0-9a-f]{6}$").Success;
-            }
+        static bool ValidateHeight(string value)
+        {
+            return Regex.Match(value, "^(1[5-8][0-9]|19[0-3])cm|(59|6[0-9]|7[0-6])in$").Success;
+        }
 
-            static bool ValidateEyeColor(string value)
-            {
-                return Regex.Match(value, @"^(amb|blu|brn|gry|grn|hzl|oth)\b").Success;
-            }
+        static bool ValidateHairColor(string value)
+        {
+            return Regex.Match(value, "^#[0-9a-f]{6}$").Success;
+        }
 
-            static bool ValidatePassportId(string value)
-            {
-                return Regex.Match(value, "^[0-9]{9}$").Success;
-            }
+        static bool ValidateEyeColor(string value)
+        {
+            return Regex.Match(value, @"^(amb|blu|brn|gry|grn|hzl|oth)\b").Success;
+        }
+
+        static bool ValidatePassportId(string value)
+        {
+            return Regex.Match(value, "^[0-9]{9}$").Success;
         }
 
         struct Passport
