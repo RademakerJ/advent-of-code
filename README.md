@@ -17,3 +17,5 @@
 | 13.| Shuttle Search           | [link](https://adventofcode.com/2020/day/13)      |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day13)|
 | 14.| Docking Data             | [link](https://adventofcode.com/2020/day/14)      |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day14)|
 | 15.| Rambunctious Recitation  | [link](https://adventofcode.com/2020/day/15)      |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day15)|
+| 16.| Ticket Translation       | [link](https://adventofcode.com/2020/day/16)      |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day16)|
+| 18.| Operation Order          | [link](https://adventofcode.com/2020/day/18)      |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day18)|
