@@ -19,3 +19,5 @@
 | 15.| Rambunctious Recitation  | [link](https://adventofcode.com/2020/day/15)      |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day15)|
 | 16.| Ticket Translation       | [link](https://adventofcode.com/2020/day/16)      |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day16)|
 | 18.| Operation Order          | [link](https://adventofcode.com/2020/day/18)      |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day18)|
+| 21.| Allergen Assessment      | [link](https://adventofcode.com/2020/day/21)      |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day21)|
+| 25.| Combo Breaker            | [link](https://adventofcode.com/2020/day/25)      |  [solution](https://github.com/RademakerJ/advent-of-code/tree/main/day25)|

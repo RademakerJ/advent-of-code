@@ -67,13 +67,13 @@ namespace day16
                 }
             }
 
-            dict = CrossOutDuplicates(dict, dict.Count());
+            dict = CrossOutDuplicates(dict);
             long mult = MultiplyDepartureCategories(dict, myTicket);
 
             return (dict, mult);
         }
 
-        private static Dictionary<Identifier, List<int>> CrossOutDuplicates(Dictionary<Identifier, List<int>> identifiers, int originalLength)
+        private static Dictionary<Identifier, List<int>> CrossOutDuplicates(Dictionary<Identifier, List<int>> identifiers)
         {
             // Single value, so that must be the category for that identifier.
             var singleIdentifiers = identifiers.Where(x => x.Value.Count == 1).ToArray();
@@ -94,7 +94,7 @@ namespace day16
             }
             else
             {
-                return CrossOutDuplicates(identifiers, originalLength);
+                return CrossOutDuplicates(identifiers);
             }
         }
 
